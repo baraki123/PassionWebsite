@@ -39,14 +39,6 @@ export default function WhenAmericaCelebrates() {
           <br />
           <span className="text-[#8DC63F]">Passion Growers Are There</span>
         </h2>
-        <p
-          className="text-[#EEF5E5]/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light"
-          style={{ fontFamily: "var(--font-inter)" }}
-        >
-          Passion Growers&apos; roses have graced the nation&apos;s most celebrated stages.
-          <br />
-          When the moment has to be perfect, America trusts us
-        </p>
       </div>
 
       {/* Event mosaic */}
@@ -89,8 +81,20 @@ export default function WhenAmericaCelebrates() {
         ))}
       </div>
 
+      {/* Forrest Gump line */}
+      <div className="max-w-3xl mx-auto text-center mt-16 mb-10">
+        <p
+          className="text-[#F8FAF5]/90 text-xl md:text-2xl leading-relaxed italic"
+          style={{ fontFamily: "var(--font-cormorant)" }}
+        >
+          From Pasadena to the Indy Speedway. From Broadway to the Winner&apos;s Circle.
+          <br />
+          Wherever America gathers for its greatest moments — our flowers are there.
+        </p>
+      </div>
+
       {/* Brand promise */}
-      <div className="text-center mt-16">
+      <div className="text-center mt-6">
         <p
           className="text-[#D4A853] text-2xl md:text-4xl tracking-[0.2em] uppercase"
           style={{ fontFamily: "var(--font-cormorant)" }}
