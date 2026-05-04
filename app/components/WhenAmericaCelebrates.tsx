@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const events = [
   {
     name: "Kentucky Derby",
@@ -26,63 +28,98 @@ const events = [
   },
 ];
 
+function Sparkle({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2 L13.6 9.4 L21 11 L13.6 12.6 L12 20 L10.4 12.6 L3 11 L10.4 9.4 Z" />
+    </svg>
+  );
+}
+
 export default function WhenAmericaCelebrates() {
   return (
-    <section className="bg-[#1E3A14] py-24 px-6">
+    <section className="relative bg-[#1E3A14] py-28 px-6 overflow-hidden">
+      {/* Ambient gold haze */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(212,168,83,0.08) 0%, rgba(212,168,83,0) 55%)",
+        }}
+      />
+
       {/* Header */}
-      <div className="max-w-5xl mx-auto text-center mb-16">
+      <Reveal className="relative max-w-5xl mx-auto text-center mb-20">
+        <p
+          className="text-[#D4A853] text-xs tracking-[0.4em] uppercase mb-5"
+          style={{ fontFamily: "var(--font-inter)" }}
+        >
+          Social Proof
+        </p>
         <h2
-          className="text-[#F8FAF5] text-4xl md:text-6xl font-bold leading-tight mb-8"
+          className="text-[#F8FAF5] text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           When America Celebrates,
           <br />
-          <span className="text-[#8DC63F]">Passion Growers Are There</span>
+          <span className="italic font-normal text-[#8DC63F]" style={{ fontFamily: "var(--font-cormorant)" }}>
+            Passion Flowers
+          </span>{" "}
+          Are There.
         </h2>
-      </div>
+      </Reveal>
 
       {/* Event mosaic */}
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {events.map((event) => (
-          <div
-            key={event.name}
-            className="rounded-2xl overflow-hidden cursor-default flex flex-col"
-          >
-            {/* Image */}
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-              <img
-                src={event.img}
-                alt={event.name}
-                className="w-full h-full object-cover object-center"
-              />
+      <div className="relative max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        {events.map((event, i) => (
+          <Reveal key={event.name} delay={i * 90} className="group">
+            <div className="flex flex-col cursor-default">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl ring-1 ring-[#8DC63F]/15 group-hover:ring-[#D4A853]/50 transition-all duration-500">
+                <img
+                  src={event.img}
+                  alt={event.name}
+                  className="w-full h-full object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(30,58,20,0.55) 100%)",
+                  }}
+                />
+              </div>
+
+              <div className="pt-5 px-1">
+                <Sparkle className="text-[#D4A853] mb-2" />
+                <p
+                  className="text-[#F8FAF5] text-xl font-bold leading-tight mb-1.5 tracking-tight"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  {event.name}
+                </p>
+                <div className="h-px w-8 bg-[#D4A853]/60 mb-2.5 transition-all duration-500 group-hover:w-14 group-hover:bg-[#D4A853]" />
+                <p
+                  className="text-[#EEF5E5]/75 text-sm leading-snug font-light"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {event.caption}
+                </p>
+              </div>
             </div>
-            {/* Text below image */}
-            <div className="pt-4 px-1">
-              <p
-                className="text-[#D4A853] text-xs tracking-widest mb-1"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                ✦
-              </p>
-              <p
-                className="text-[#F8FAF5] text-xl font-bold leading-tight mb-1"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                {event.name}
-              </p>
-              <p
-                className="text-[#EEF5E5]/75 text-sm leading-snug font-light"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {event.caption}
-              </p>
-            </div>
-          </div>
+          </Reveal>
         ))}
       </div>
 
       {/* Forrest Gump line */}
-      <div className="max-w-3xl mx-auto text-center mt-16 mb-10">
+      <Reveal delay={200} className="relative max-w-3xl mx-auto text-center mt-20 mb-10">
         <p
           className="text-[#F8FAF5]/90 text-xl md:text-2xl leading-relaxed italic"
           style={{ fontFamily: "var(--font-cormorant)" }}
@@ -91,17 +128,21 @@ export default function WhenAmericaCelebrates() {
           <br />
           Wherever America gathers for its greatest moments — our flowers are there.
         </p>
-      </div>
+      </Reveal>
 
       {/* Brand promise */}
-      <div className="text-center mt-6">
-        <p
-          className="text-[#D4A853] text-2xl md:text-4xl tracking-[0.2em] uppercase"
-          style={{ fontFamily: "var(--font-cormorant)" }}
-        >
-          Passion Perfect
-        </p>
-      </div>
+      <Reveal delay={300} className="relative text-center mt-8">
+        <div className="inline-flex items-center gap-5">
+          <span className="h-px w-10 bg-[#D4A853]/50" />
+          <p
+            className="text-[#D4A853] text-2xl md:text-4xl tracking-[0.3em] uppercase"
+            style={{ fontFamily: "var(--font-cormorant)" }}
+          >
+            Passion Perfect
+          </p>
+          <span className="h-px w-10 bg-[#D4A853]/50" />
+        </div>
+      </Reveal>
     </section>
   );
 }

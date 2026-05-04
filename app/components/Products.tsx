@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const products = [
   {
     name: "Passion Petites",
@@ -51,21 +53,23 @@ const products = [
 
 export default function Products() {
   return (
-    <section id="products" className="bg-[#F8FAF5] py-24 px-6">
+    <section id="products" className="bg-[#F8FAF5] py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-20">
           <p
-            className="text-[#4A7A2A] text-sm tracking-widest uppercase mb-4"
+            className="text-[#4A7A2A] text-xs tracking-[0.4em] uppercase mb-5"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             Our Collections
           </p>
           <h2
-            className="text-[#1E3A14] text-4xl md:text-5xl font-bold mb-6"
+            className="text-[#1E3A14] text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-[1.1]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            A Bloom for Every Moment
+            A Bloom for{" "}
+            <span className="italic font-normal text-[#2D4720]" style={{ fontFamily: "var(--font-cormorant)" }}>
+              Every Moment.
+            </span>
           </h2>
           <p
             className="text-[#1E3A14]/65 text-lg leading-relaxed max-w-2xl mx-auto font-light"
@@ -75,61 +79,55 @@ export default function Products() {
             life&apos;s most special occasions — our collections are designed to
             delight every shopper and maximize every inch of your floral space.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <div
-              key={product.name}
-              className="group rounded-2xl overflow-hidden border border-[#8DC63F]/30 hover:shadow-lg transition-shadow duration-300"
-            >
-              {/* Visual */}
-              <div
-                className="w-full aspect-[4/3] relative flex items-center justify-center"
-                style={{ background: product.bg }}
-              >
-                {product.img ? (
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: "center 15%" }}
-                  />
-                ) : (
-                  <span
-                    className="text-white/25 text-xs"
+          {products.map((product, i) => (
+            <Reveal key={product.name} delay={(i % 3) * 100}>
+              <div className="group h-full rounded-2xl overflow-hidden border border-[#8DC63F]/25 bg-[#F8FAF5] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(30,58,20,0.35)] hover:border-[#D4A853]/50">
+                <div
+                  className="w-full aspect-[4/3] relative flex items-center justify-center overflow-hidden"
+                  style={{ background: product.bg }}
+                >
+                  {product.img ? (
+                    <img
+                      src={product.img}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                      style={{ objectPosition: "center 15%" }}
+                    />
+                  ) : (
+                    <span className="text-white/25 text-xs" style={{ fontFamily: "var(--font-inter)" }}>
+                      Photo: {product.name}
+                    </span>
+                  )}
+                  <div className="absolute top-4 left-4">
+                    <span
+                      className="bg-[#F8FAF5]/95 text-[#1E3A14] text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 rounded-full font-medium shadow-sm"
+                      style={{ fontFamily: "var(--font-inter)" }}
+                    >
+                      {product.tag}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-7 bg-[#F8FAF5]">
+                  <h3
+                    className="text-[#1E3A14] text-xl font-bold mb-2.5 tracking-tight"
+                    style={{ fontFamily: "var(--font-playfair)" }}
+                  >
+                    {product.name}
+                  </h3>
+                  <div className="h-px w-8 bg-[#D4A853]/70 mb-3 transition-all duration-500 group-hover:w-14 group-hover:bg-[#D4A853]" />
+                  <p
+                    className="text-[#1E3A14]/65 text-sm leading-relaxed font-light"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
-                    Photo: {product.name}
-                  </span>
-                )}
-                <div className="absolute top-4 left-4">
-                  <span
-                    className="bg-[#F8FAF5]/90 text-[#1E3A14] text-xs tracking-widest uppercase px-3 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-inter)" }}
-                  >
-                    {product.tag}
-                  </span>
+                    {product.description}
+                  </p>
                 </div>
               </div>
-
-              {/* Copy */}
-              <div className="p-6 bg-[#F8FAF5]">
-                <h3
-                  className="text-[#1E3A14] text-xl font-bold mb-2"
-                  style={{ fontFamily: "var(--font-playfair)" }}
-                >
-                  {product.name}
-                </h3>
-                <p
-                  className="text-[#1E3A14]/60 text-sm leading-relaxed font-light"
-                  style={{ fontFamily: "var(--font-inter)" }}
-                >
-                  {product.description}
-                </p>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

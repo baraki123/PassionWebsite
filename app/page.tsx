@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import TrustBar from "./components/TrustBar";
 import WhenAmericaCelebrates from "./components/WhenAmericaCelebrates";
 import TheStory from "./components/TheStory";
 import GrownRight from "./components/GrownRight";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <TrustBar />
       <WhenAmericaCelebrates />
       <TheStory />
       <GrownRight />
