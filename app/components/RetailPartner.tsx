@@ -49,7 +49,7 @@ export default function RetailPartner() {
           >
             Your Partner,{" "}
             <span className="italic font-normal text-[#D4A853]" style={{ fontFamily: "var(--font-cormorant)" }}>
-              Coast to Coast.
+              Coast to Coast
             </span>
           </h2>
           <p

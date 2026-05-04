@@ -73,7 +73,7 @@ export default function WhenAmericaCelebrates() {
           <span className="italic font-normal text-[#8DC63F]" style={{ fontFamily: "var(--font-cormorant)" }}>
             Passion Flowers
           </span>{" "}
-          Are There.
+          Are There
         </h2>
       </Reveal>
 

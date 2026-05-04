@@ -52,7 +52,7 @@ export default function TheStory() {
               with
             </span>
             <br />
-            Roses.
+            Roses
           </h2>
           <div
             className="space-y-5 text-[#1E3A14]/80 text-lg leading-relaxed font-light"

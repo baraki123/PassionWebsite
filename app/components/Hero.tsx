@@ -43,12 +43,12 @@ export default function Hero() {
             animation: "fade-in-up 1.1s 0.15s ease-out both",
           }}
         >
-          Grown with Passion.
+          Grown with Passion
           <br />
           <span className="italic font-normal" style={{ fontFamily: "var(--font-cormorant)" }}>
             Shipped with
           </span>{" "}
-          Precision.
+          Precision
         </h1>
 
         <p
@@ -58,7 +58,7 @@ export default function Hero() {
             animation: "fade-in-up 1.1s 0.35s ease-out both",
           }}
         >
-          From our lush farms in Ecuador and Colombia, delivered fresh to your stores.
+          From our lush farms in Ecuador and Colombia, delivered fresh to your stores
         </p>
 
         {/* Scroll prompt — gold accent, more elegant */}

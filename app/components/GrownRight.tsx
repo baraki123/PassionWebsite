@@ -67,7 +67,7 @@ export default function GrownRight() {
           >
             Grown Right —{" "}
             <span className="italic font-normal text-[#2D4720]" style={{ fontFamily: "var(--font-cormorant)" }}>
-              from the ground up.
+              from the ground up
             </span>
           </h2>
         </Reveal>

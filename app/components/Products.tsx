@@ -68,7 +68,7 @@ export default function Products() {
           >
             A Bloom for{" "}
             <span className="italic font-normal text-[#2D4720]" style={{ fontFamily: "var(--font-cormorant)" }}>
-              Every Moment.
+              Every Moment
             </span>
           </h2>
           <p
